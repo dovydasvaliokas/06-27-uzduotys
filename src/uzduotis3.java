@@ -15,20 +15,27 @@ public class uzduotis3 {
         System.out.println("Pakartokite slaptažodį: ");
         String pakartotasPassword = skaitytuvas.nextLine();
 
-        System.out.println(login);
-        System.out.println(email);
-        System.out.println(password);
-        System.out.println(pakartotasPassword);
+        boolean a = arLoginNesutampaSuSlaptazodziu(login, password);
+        boolean b = arEmailTuriSimbolius(email);
+        boolean c = arVienodiSlaptazodziai(password,pakartotasPassword);
+        boolean d = slaptazodzioIlgis(password);
+        boolean e = arYraMazojiRaideSlaptazodyje(password);
+        boolean f = arYraDidziojiRaideSlaptazodyje(password);
+        boolean g = arYraSkaitmenuSlapazodyje(password);
 
-        arLoginNesutampaSuSlaptazodziu(login, password);
-        arEmailTuriSimbolius(email);
-        arVienodiSlaptazodziai(password,pakartotasPassword);
-        slaptazodzioIlgis(password);
-        arYraMazojiRaideSlaptazodyje(password);
-        arYraDidziojiRaideSlaptazodyje(password);
-        arYraSkaitmenuSlapazodyje(password);
+        pagrindinis(a, b, c, d, e, f, g);
 
 
+    }
+    public static boolean pagrindinis(boolean a, boolean b, boolean c, boolean d, boolean e, boolean f, boolean g){
+        if(a == true && b == true && c == true && d == true && e == true && f == true && g == true){
+            System.out.println("Sveikiname sėkmingai užsiregistravus");
+            return true;
+        }
+        else{
+            System.out.println("Registracija nepavyko");
+            return false;
+        }
     }
 
     /**
@@ -36,28 +43,27 @@ public class uzduotis3 {
      * @param login Prisijungimo vardas, įvesti
      * @param password Slaptažodis, įvesti
      */
-    public static void arLoginNesutampaSuSlaptazodziu(String login, String password){
-
+    public static boolean arLoginNesutampaSuSlaptazodziu(String login, String password){
         if(login.equalsIgnoreCase(password)){
             System.out.println("Slaptažodis negali būti toks pats kaip ir prisijungimo vardas");
+            return false;
         }
         else{
-            System.out.println("Slaptažodis ir prisijungimo vardas - OK");
+            return true;
         }
-
-
     }
 
     /**
      * Patikrina ar el. pašto adresas turi simbolius "@" ir ".", atsako į tai kas pateikta
      * @param email Elektroninis paštas
      */
-    public static void arEmailTuriSimbolius(String email){
+    public static boolean arEmailTuriSimbolius(String email){
         if(email.contains("@") && email.contains(".")){
-            System.out.println("Su el. paštu viskas gerai");
+            return true;
         }
         else{
             System.out.println("Neteisingai įvestas el. pašto adresas");
+            return false;
         }
     }
 
@@ -66,12 +72,13 @@ public class uzduotis3 {
      * @param password
      * @param pakartotasPassword
      */
-    public static void arVienodiSlaptazodziai(String password, String pakartotasPassword){
+    public static boolean arVienodiSlaptazodziai(String password, String pakartotasPassword){
         if(password.equals(pakartotasPassword)){
-            System.out.println("Slaptažodžiai sutampa");
+            return true;
         }
         else{
             System.out.println("Slaptažodžiai nesutampa, pabandykite dar kartą");
+            return false;
         }
     }
 
@@ -79,40 +86,47 @@ public class uzduotis3 {
      * Patikrina ar slaptažodžius sudaro bent 10 simbolių
      * @param password
      */
-    public static void slaptazodzioIlgis(String password){
+    public static boolean slaptazodzioIlgis(String password){
         if(password.length() < 10){
             System.out.println("Slaptažodis per trumpas, slaptažodį turėtų sudaryti bent 10 simbolių");
+            return false;
         }
         else{
-            System.out.println("Slaptažodžių ilgis geras");
+            return true;
         }
     }
 
-    public static void arYraMazojiRaideSlaptazodyje(String password){
+    public static boolean arYraMazojiRaideSlaptazodyje(String password){
         if(password.equals(password.toUpperCase()) ){
-            System.out.println("Slaptažodyje nėra mažosios raidės");
+            System.out.println("Slaptažodyje privalo būti bent viena mažoji raidė");
+            return false;
         }
         else{
-            System.out.println("Slaptažodyje yra mažųjų raidžių");
+            return true;
         }
     }
-    public static void arYraDidziojiRaideSlaptazodyje(String password){
+    public static boolean arYraDidziojiRaideSlaptazodyje(String password){
         if(password.equals(password.toLowerCase())){
-            System.out.println("Slaptažodyje nėra didžiosios raidės");
+            System.out.println("Slaptažodyje privalo būti bent viena didžioji raidė");
+            return false;
         }
         else{
-            System.out.println("Slaptažodyje yra didžiųjų raidžių");
+            return true;
         }
     }
-    public static void arYraSkaitmenuSlapazodyje(String password){
+    public static boolean arYraSkaitmenuSlapazodyje(String password){
         char[] ch = password.toCharArray();
-        for (char c: ch){
-            if(Character.isDigit(c)){
-                System.out.println("Rastas skaitmuo");
+        boolean arYraSkaicius = false;
+        for (char cr: ch){
+            if(Character.isDigit(cr)){
+                arYraSkaicius = true;
             }
-            else{
-                System.out.println("Nėra skaitmenų");
-            }
+        }
+        if(arYraSkaicius)
+            return true;
+        else{
+            System.out.println("Slaptažodį privalo sudaryti bent vienas skaitmuo");
+            return false;
         }
     }
 }
