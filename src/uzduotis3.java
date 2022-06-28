@@ -28,7 +28,7 @@ public class uzduotis3 {
 
     }
     public static boolean pagrindinis(boolean a, boolean b, boolean c, boolean d, boolean e, boolean f, boolean g){
-        if(a == true && b == true && c == true && d == true && e == true && f == true && g == true){
+        if(a  && b  && c  && d  && e  && f  && g ){
             System.out.println("Sveikiname sėkmingai užsiregistravus");
             return true;
         }
@@ -120,6 +120,7 @@ public class uzduotis3 {
         for (char cr: ch){
             if(Character.isDigit(cr)){
                 arYraSkaicius = true;
+                break;
             }
         }
         if(arYraSkaicius)

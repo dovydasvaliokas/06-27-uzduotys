@@ -36,6 +36,13 @@
   }
 }]]></component>
   <component name="RunManager" selected="Application.uzduotis3">
+    <configuration name="uzduotis1pasitikrinti" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uzduotis1pasitikrinti" />
+      <module name="Uzduotys" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="uzduotis2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="uzduotis2" />
       <module name="Uzduotys" />
@@ -53,6 +60,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.uzduotis3" />
+        <item itemvalue="Application.uzduotis1pasitikrinti" />
         <item itemvalue="Application.uzduotis2" />
       </list>
     </recent_temporary>
