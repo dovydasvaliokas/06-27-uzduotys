@@ -15,6 +15,13 @@ public class uzduotis3 {
         System.out.println("Pakartokite slaptažodį: ");
         String pakartotasPassword = skaitytuvas.nextLine();
 
+
+
+        pagrindinis(login, email, password, pakartotasPassword);
+
+
+    }
+    public static boolean pagrindinis(String login, String email, String password, String pakartotasPassword){
         boolean a = arLoginNesutampaSuSlaptazodziu(login, password);
         boolean b = arEmailTuriSimbolius(email);
         boolean c = arVienodiSlaptazodziai(password,pakartotasPassword);
@@ -22,12 +29,6 @@ public class uzduotis3 {
         boolean e = arYraMazojiRaideSlaptazodyje(password);
         boolean f = arYraDidziojiRaideSlaptazodyje(password);
         boolean g = arYraSkaitmenuSlapazodyje(password);
-
-        pagrindinis(a, b, c, d, e, f, g);
-
-
-    }
-    public static boolean pagrindinis(boolean a, boolean b, boolean c, boolean d, boolean e, boolean f, boolean g){
         if(a  && b  && c  && d  && e  && f  && g ){
             System.out.println("Sveikiname sėkmingai užsiregistravus");
             return true;
